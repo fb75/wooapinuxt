@@ -226,6 +226,7 @@ export default {
     .cta-cart {
       display: flex;
       justify-content: space-around;
+      align-items: center;
       width: 90%;
       text-align: center;
       padding: 0.5em;

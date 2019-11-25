@@ -64,8 +64,11 @@ export default {
   },
   methods: {
     panelSlide() {
-      this.isToggled = !this.isToggled;
-      this.$store.dispatch("ui/togglePanel", this.isToggled);
+      if(window.innerWidth > 767) {
+        this.isToggled = !this.isToggled;
+        this.$store.dispatch("ui/togglePanel", this.isToggled);  
+      }
+      this.$router.push('/products')
     },
     changeVisibility() {
       this.isVisible = !this.isVisible;
