@@ -134,6 +134,7 @@ p {
         }
         p {
           margin: 1em auto;
+          text-align: center;
         }
       }
 

@@ -139,17 +139,17 @@ export default {
         justify-self: center;
         transition: all 0.5s;
       }
-      &.selected {
-      }
+
     }
     .menu-filter {
       display: flex;
       flex-flow: column;
       align-items: flex-start;
       justify-content: flex-start;
-      min-height: fit-content;
-      transform: scaleY(0);
-      transition: all 0.3s ease-in-out;
+      height: 0;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
 
       .size {
         width: 100%;
@@ -158,7 +158,7 @@ export default {
         justify-content: center;
         .size-input {
           width: 100%;
-          padding: 0.5em 0;
+          padding: 0.2em 0;
           display: flex;
           align-content: center;
           align-items: center;
@@ -173,8 +173,20 @@ export default {
         }
       }
       &.menu-toggled {
-        transform: scaleY(1);
-        transform-origin: top;
+        transform: translateY(0);
+        opacity: 1;
+        height: fit-content;
+      }
+    }
+    .menu-items {
+      width: 95%;
+      margin: .5em auto;
+      transition: all .3s ease-in-out;
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+
+      &.slided {
+        //transform: translateY(10%);
       }
     }
     .subcategories {
