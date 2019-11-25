@@ -12,14 +12,16 @@
           <input type="checkbox" value="5" />8 - 9
         </div>
       </div>
-      <hr style="width: 90%; color: lightgrey">
+      <hr>
       <p>Price</p>
       <div class="price">
-        <input type="checkbox">40€ - 70€
-        <input type="checkbox">70€ - 100€
-        <input type="checkbox">>100€
+        <div class="price-input">
+          <input type="checkbox" value="1" />40€ - 70€
+          <input type="checkbox" value="1" />70€ - 100€
+          <input type="checkbox" value="1" />>100€  
+        </div>
       </div>
-      <hr style="width: 90%; color: lightgrey">
+      <hr>
       <p>Color</p>
       <div class="color">
         <div class="color-type white"></div>
@@ -141,6 +143,62 @@ export default {
       }
 
     }
+    .color {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-content: space-around;
+
+      .color-type {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        margin: .3em auto;
+
+        &.white {
+          border: 1px solid lightgray;
+          background: white;
+        }
+        &.red {
+          background: red;
+        }
+        &.grey {
+          background: grey;
+        }
+        &.blue {
+          background: blue;
+        }
+        &.black {
+          background: black;
+        }
+      }
+
+
+    }
+    .price {
+      width: 100%;
+      font-size: .85em;    
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      .price-input {
+        width: 100%;
+        padding: .2em 0;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: space-around;
+
+        input {
+          margin-right: -3.5em;
+        }
+
+      }
+      p {
+        text-align: center;
+      }
+    }
     .menu-filter {
       display: flex;
       flex-flow: column;
@@ -150,28 +208,35 @@ export default {
       transform: translateY(-100%);
       opacity: 0;
       transition: all 0.2s ease-in-out;
+      hr {
+        width: 95%;
+        margin: 0 auto;
+        color: lightgrey;
+      }
+
+      p {
+        margin: .3em auto;
+        font-weight: bold;
+      }
 
       .size {
         width: 100%;
         display: flex;
-        flex-flow: column;
         justify-content: center;
+        font-size: .85em;
         .size-input {
           width: 100%;
-          padding: 0.2em 0;
+          padding: .2em 0;
           display: flex;
           align-content: center;
           align-items: center;
           justify-content: space-around;
-        }
 
-        .price {
-          width: 100%;
-          p {
-            text-align: center;
+          input {
+            margin-right: -5em;
           }
         }
-      }
+    }
       &.menu-toggled {
         transform: translateY(0);
         opacity: 1;

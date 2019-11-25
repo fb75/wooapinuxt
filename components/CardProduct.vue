@@ -94,8 +94,6 @@ export default {
 
 @media only screen and (max-width: 767.98px) {
   .card-product {
-    margin: .5em;
-    height: fit-content;
     display: flex;
     flex-flow: column;
     align-content: center;
@@ -187,7 +185,6 @@ export default {
       align-content: center;
       justify-content: center;
       //background: #e4ebff;
-      padding: 0.5em;
       font-family: 'Lato', sans-serif;
       .regular-price {
         display: flex;
@@ -227,10 +224,11 @@ export default {
       }
     }
     .cta-cart {
+      display: flex;
+      justify-content: space-around;
       width: 90%;
-      margin: 1.5em auto;
       text-align: center;
-      padding: 0.8em;
+      padding: 0.5em;
       background: #5f5c6d;
       border: 1px solid #5f5c6d;
       color: #fff;

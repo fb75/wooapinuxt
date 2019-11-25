@@ -90,6 +90,8 @@ p {
 
 @media only screen and (max-width: 767.98px) {
   .upper-content {
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -180,7 +182,7 @@ p {
     height: -webkit-fill-available;
     overflow-y: auto;
     transition: all .5s;
-
+    
   }
 }
 @media only screen and (min-width: 768px) {

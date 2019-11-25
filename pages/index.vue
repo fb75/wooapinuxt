@@ -93,7 +93,8 @@ export default {
     display: grid;
     grid-template-columns: 50%;
     grid-auto-flow: column;
-    grid-auto-columns: calc(60% - 1em);
+    grid-gap: 1em;
+    grid-auto-columns: calc(50% - 1em);
     overflow-x: auto;
     scroll-snap-type: x proximity;
   }
