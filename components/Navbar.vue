@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @media screen and (max-width: 767.98px) {
   .navbar {

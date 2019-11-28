@@ -21,7 +21,8 @@ computed: {
 <style lang="scss" scoped>
 @media screen and (max-width: 768px) {
   .hamburger {
-    margin-right: 1em;
+    position: absolute;
+    right: 1em;
     cursor: pointer;
     display: flex;
     flex-flow: column;

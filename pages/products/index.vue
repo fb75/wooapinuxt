@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<Navbar />
 		<Header />
 		<div class="col mt-2">
 		<CardProduct  
@@ -13,13 +14,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Navbar from '@/components/Navbar'
 import Header from '@/components/Header'
 import CardProduct from '@/components/CardProduct'
 
 export default {
 	components: {
+		Navbar,
 		Header,
 		CardProduct
+	},
+	data() {
+		return {
+			isVisible: false
+		}
 	},
   computed: {
 		...mapGetters({
@@ -29,6 +37,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 	
 </style>
