@@ -93,7 +93,7 @@ p {
   font-size: 1.5em;
 }
 
-@media only screen and (max-width: 767.98px) {
+@media only screen and (max-width: 768px) {
   .upper-content {
     width: 100%;
     margin: 0 auto;
@@ -190,7 +190,7 @@ p {
     
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768.98px) {
   .upper-content {
     width: 100%;
     display: flex;

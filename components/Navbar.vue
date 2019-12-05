@@ -71,8 +71,9 @@ export default {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768.98px) {
   .navbar {
+    position: fixed;
     display: flex;
     width: 100%;
     align-content: center;

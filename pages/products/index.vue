@@ -32,7 +32,18 @@ export default {
   computed: {
 		...mapGetters({
 			showProducts: "products/showProducts"
-		})
+		}),
+		noProducts() {
+			return this.showProducts == 0
+		},
+		reloadProducts(noProducts) {
+			this.$repositories.products.showProducts()
+				.then(res => {
+					const items = JSON.parse(res)
+					this.$store.dispatch('products/setProducts', items)
+				})
+				.catch(e => console.log(e))
+		}
 	}
 };
 </script>

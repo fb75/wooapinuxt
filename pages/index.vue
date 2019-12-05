@@ -63,13 +63,13 @@ export default {
     //   return this.currentPosition === 0
     // }
   },
-  watch: {
-    showProducts(newProducts) {
-      if (newProducts.length < this.currentPosition) {
-        this.currentPosition = 0;
-      }
-    }
-  },
+  // watch: {
+  //   showProducts(newProducts) {
+  //     if (newProducts.length < this.currentPosition) {
+  //       this.currentPosition = 0;
+  //     }
+  //   }
+  // },
   methods: {
     nextProduct() {
       // if(this.productsMaxLength) {
@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 768px) {
   .products {
     margin: 1em auto;
     width: 100%;
@@ -112,7 +112,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768.98px) {
   .products {
     width: 95%;
     z-index: 999;

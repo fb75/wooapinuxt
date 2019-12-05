@@ -52,7 +52,7 @@ computed: {
      opacity: 0;
     }
     span:nth-of-type(3) {
-      transform:  rotate(45deg) translateY(-.5em);
+      transform:  rotate(45deg) translateY(-.51em);
     }
   }
 }

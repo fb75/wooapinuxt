@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 768px) {
 	header {
 		position: sticky;
 		top: 0;
@@ -75,9 +75,8 @@ export default {
 		}
 
 		.fa-shopping-cart {
-			position: relative;
-	  	
-	  	cursor: pointer;
+			position: absolute;
+			right: 3.1em;
 		}
 		
 		p {
@@ -86,13 +85,17 @@ export default {
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768.98px) {
 	header {
 		position: fixed;
 		width: 100%;
 		top: 0;
 		left:0;
 		z-index: 999;
+
+		.fa-shopping-cart, p {
+			display: none;
+		}
 	}
 }
 
