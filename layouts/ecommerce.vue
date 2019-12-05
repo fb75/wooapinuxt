@@ -29,7 +29,7 @@
       <Toggler @toggle="panelSlide" />
       <UIMenu />
       <nuxt />
-      <Footer />
+      <!-- <Footer /> -->
     </div>
   </div>
 </template>
@@ -64,11 +64,13 @@ export default {
   },
   methods: {
     panelSlide() {
-      if(window.innerWidth > 767) {
+      if(window.innerWidth < 767) {
         this.isToggled = !this.isToggled;
         this.$store.dispatch("ui/togglePanel", this.isToggled);  
+        this.$router.push('/products')
       }
-      this.$router.push('/products')
+      this.isToggled = !this.isToggled;
+      this.$store.dispatch("ui/togglePanel", this.isToggled);
     },
     changeVisibility() {
       this.isVisible = !this.isVisible;

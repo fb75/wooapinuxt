@@ -40,10 +40,10 @@ export default {
     top: 0;
     display: flex;
     flex-flow: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     width: 50%;
-    min-height: 100vh;
+    height: 100vh;
     background: rgb(14,25,48);
     color: #fff;
     overflow-y: hidden;
@@ -51,6 +51,13 @@ export default {
     z-index: 999;
     transform: translateX(-100%);
     transition: all .4s;
+
+    .nuxt-link-active {
+      color: #fff;
+      width: 100%;
+      padding: 0 .5em;
+      margin: .5em auto;
+    }
 
     &.active {
       transform: translateX(0);

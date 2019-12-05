@@ -27,38 +27,33 @@ computed: {
     display: flex;
     flex-flow: column;
     align-items: center;
-    justify-content: center;
-    height: 25px;
+    align-content: center;
+    justify-content: space-around;
     width: 25px;
+    height: 20px;
     background: transparent;
     //transition: all 0.4s ease;
     z-index: 999;
+
+    span {
+      cursor: pointer;
+      width: 100%;
+      height: 1px;
+      background: #5F5C6D;
+      transition: all 0.4s ease;
+    }
   }
   .cross {
     span:first-of-type {
-      transform: rotate(-45deg) translateY(.49em);
-      width: 1.5em;
-      height: .1em;
+      transform: rotate(-45deg) translateY(.5em);
+    
     }
     span:nth-of-type(2) {
      opacity: 0;
     }
     span:nth-of-type(3) {
-      transform:  rotate(45deg) translateY(-.45em);
-      width: 1.5em;
-      height: .1em;
+      transform:  rotate(45deg) translateY(-.5em);
     }
-  }
-
-  
-  
-  span {
-    cursor: pointer;
-    margin: .1em 0;
-    width: 100%;
-    height: .17em;
-    background: #5F5C6D;
-    transition: all 0.4s ease;
   }
 }
 

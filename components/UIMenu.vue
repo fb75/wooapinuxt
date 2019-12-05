@@ -1,7 +1,7 @@
 <template>
   <div :class="{'menu-container': !panelActive, 'menu-container toggled': panelActive}">
     <div @click.prevent="openMenu()">
-      <fa :icon="faFilter" class="ml-2 mt-2" />
+      <fa :icon="faFilter" class="ml-2 mt-2" /> Filter
     </div>
     <div :class="{'menu-filter': !menuToggled, 'menu-filter menu-toggled': menuToggled}">
       <p>Size</p>

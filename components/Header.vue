@@ -2,12 +2,14 @@
 		<header role="navigation">
 			<fa v-if="canGoBack" :icon="faArrowLeft" @click="onClickBack" />
 			<p>Nuxt.js + WC-API Ecommerce</p>
+			<fa :icon="faShoppingCart" />
 			<Hamburger @navActive="changeVisibility" />
 		</header>
 </template>
 
 <script>
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import Hamburger from '@/components/Hamburger'
 import Navbar from '@/components/Navbar'
 
@@ -24,6 +26,9 @@ export default {
 	computed: {
 		faArrowLeft() {
       return faArrowLeft
+    },
+    faShoppingCart() {
+      return faShoppingCart
     },
   	canGoBack() {
     	return this.$route.name !== 'index'
@@ -66,6 +71,12 @@ export default {
 		.fa-arrow-left {
 			position: absolute;
 	  	left: 1em;
+	  	cursor: pointer;
+		}
+
+		.fa-shopping-cart {
+			position: relative;
+	  	
 	  	cursor: pointer;
 		}
 		
