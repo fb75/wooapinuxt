@@ -32,7 +32,7 @@
         <div class="product-description">
           <div class="description text-center" v-html="product.description"></div>
         </div>
-        <button class="cta-cart">
+        <button class="cta-cart" @click="addToCart(product)">
           <p>Add to Cart</p>
         	<fa :icon="faCartPlus" />
         </button>
@@ -53,7 +53,8 @@ export default {
   props: ['product'],
   data() {
     return {
-      clicked: false
+      clicked: false,
+      itemsInCart: null
     };
   },
   computed: {
@@ -70,6 +71,10 @@ export default {
   methods: {
     info() {
       this.clicked = !this.clicked;
+    },
+    addToCart(product) {
+      console.log(product)
+      this.itemsInCart++
     }
   }
 };
@@ -316,7 +321,7 @@ export default {
         opacity: 0;
         width: 100%;
         height: auto;
-        padding: 0.2em;
+        padding: .5em;
         background: transparent;
         color: #fff;
         bottom: 0;

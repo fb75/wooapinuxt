@@ -2,7 +2,7 @@
 	<div>
 		<Navbar />
 		<Header />
-		<div class="col mt-2">
+		<div class="col mt-2 product-list">
 		<CardProduct  
 			class="mb-4"
 			v-for="item in showProducts"
@@ -32,22 +32,27 @@ export default {
   computed: {
 		...mapGetters({
 			showProducts: "products/showProducts"
-		}),
-		noProducts() {
-			return this.showProducts == 0
-		},
-		reloadProducts(noProducts) {
+		})
+	},
+	created() {
+		if(this.showProducts == 0) {
 			this.$repositories.products.showProducts()
-				.then(res => {
-					const items = JSON.parse(res)
-					this.$store.dispatch('products/setProducts', items)
-				})
-				.catch(e => console.log(e))
+			.then(res => {
+				const items = JSON.parse(res)
+				this.$store.dispatch('products/setProducts', items)
+			})
+			.catch(e => console.log(e))
 		}
 	}
 };
 </script>
 
-<style lang="scss">
-	
+<style lang="scss" scoped>
+	@media screen and (max-width: 768px) {
+		.product-list {
+			display: grid;
+			grid-template-columns: repeat(2, auto);
+			grid-gap: .5em;
+		}
+	}
 </style>

@@ -2,7 +2,10 @@
 		<header role="navigation">
 			<fa v-if="canGoBack" :icon="faArrowLeft" @click="onClickBack" />
 			<p>Nuxt.js + WC-API Ecommerce</p>
-			<fa :icon="faShoppingCart" />
+			<div class="cart">
+				<b-badge variant="primary"></b-badge>
+				<fa :icon="faShoppingCart" />
+			</div>
 			<Hamburger @navActive="changeVisibility" />
 		</header>
 </template>
@@ -73,10 +76,20 @@ export default {
 	  	left: 1em;
 	  	cursor: pointer;
 		}
+		
+		.cart {
+			display: flex;
+			flex-flow: column;
+			height: 100%;
+			align-items: center;
+			justify-content: center;
+			padding: 1em;
+			.badge {
+				border-radius: 50px;
+			}
+			.fa-shopping-cart {
 
-		.fa-shopping-cart {
-			position: absolute;
-			right: 3.1em;
+			}
 		}
 		
 		p {
