@@ -2,6 +2,7 @@
 	<div>
 		<Navbar />
 		<Header />
+		<UIMenu />
 		<div class="col mt-2 product-list">
 		<CardProduct  
 			class="mb-4"
@@ -16,12 +17,14 @@
 import { mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar'
 import Header from '@/components/Header'
+import UIMenu from '@/components/UIMenu'
 import CardProduct from '@/components/CardProduct'
 
 export default {
 	components: {
 		Navbar,
 		Header,
+		UIMenu,
 		CardProduct
 	},
 	data() {

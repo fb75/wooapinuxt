@@ -53,13 +53,13 @@ export default {
   props: ['product'],
   data() {
     return {
-      clicked: false,
-      itemsInCart: null
+      clicked: false
     };
   },
   computed: {
     ...mapGetters({
-      loadedProducts: "products/showProducts"
+      loadedProducts: "products/showProducts",
+      cartProducts: "cart/cartProducts"
     }),
     faCartPlus() {
     	return faCartPlus
@@ -73,8 +73,7 @@ export default {
       this.clicked = !this.clicked;
     },
     addToCart(product) {
-      console.log(product)
-      this.itemsInCart++
+      this.$store.dispatch('cart/addProduct', product)
     }
   }
 };

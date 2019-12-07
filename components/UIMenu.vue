@@ -4,6 +4,8 @@
       <fa :icon="faFilter" class="ml-2 mt-2" /> Filter
     </div>
     <div :class="{'menu-filter': !menuToggled, 'menu-filter menu-toggled': menuToggled}">
+      <p @click="showAllProducts">All products</p>
+      <hr>
       <p>Size</p>
       <div class="size">
         <div class="size-input">
@@ -70,12 +72,12 @@ export default {
   },
   created() {
     this.$repositories.products
-      .getCategories()
-      .then(res => {
-        this.shopCategories = JSON.parse(res);
-        this.$store.dispatch("products/setCategories", this.shopCategories);
-      })
-      .catch(e => console.log(e));
+    .getCategories()
+    .then(res => {
+      this.shopCategories = JSON.parse(res);
+      this.$store.dispatch("products/setCategories", this.shopCategories);
+    })
+    .catch(e => console.log(e));
   },
   methods: {
     changeClass(index, category) {
@@ -99,6 +101,16 @@ export default {
     openMenu() {
       this.menuToggled = !this.menuToggled;
       this.menuItemSlided = !this.menuItemSlided;
+    },
+    showAllProducts() {
+      if(this.categoriesLenght) {
+        this.$repositories.products.showProducts()
+        .then(res => {
+          const items = JSON.parse(res)
+          this.$store.dispatch('products/setProducts', items)
+        })
+        .catch(e => console.log(e))
+      }
     }
   },
   computed: {
@@ -107,6 +119,12 @@ export default {
       shoproducts: "products/showProducts",
       panelActive: "ui/panelState"
     }),
+    categoriesLenght() {
+      return this.shopcategories.length > 0
+    },
+    // productsChanged() {
+    //   return
+    // }
     menuToggle() {
       return this.menuToggled;
     },
@@ -121,7 +139,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 767.97px) {
+@media screen and (max-width: 768px) {
   .menu-container {
     .menu-items {
       position: relative;
@@ -281,11 +299,12 @@ export default {
   }
 }
 
-@media screen and (min-width: 767.98px) {
+@media screen and (min-width: 768.98px) {
   .menu-container {
     position: absolute;
     margin-top: 1em;
     transform: translateX(-101%);
+    max-width: 20%;
     height: auto;
     background: lightgray;
     display: flex;
@@ -373,8 +392,19 @@ export default {
     height: 100%;
     span {
       margin: 0 0.5em;
-      text-align: left;
-      font-size: 0.9em;
+      text-align: center;
+      font-size: 0.85em;
+      cursor: pointer;
+      transition: all .35s ease-in-out;
+      background: black;
+      background-size: 50%;
+      background-position: top left;
+      &:hover {
+        background-size: 0;
+        background-position: bottom right;
+        background: red;
+        color: lightgrey;
+      }
     }
   }
   .menu-items {
