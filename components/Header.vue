@@ -1,16 +1,17 @@
 <template>
 		<header role="navigation">
 			<fa v-if="canGoBack" :icon="faArrowLeft" @click="onClickBack" />
-			<p>Nuxt.js + WC-API Ecommerce</p>
+			<p @click="$router.replace('/')">Nuxt.js + WC-API Ecommerce</p>
 			<div class="cart">
-				<b-badge variant="primary"></b-badge>
-				<fa :icon="faShoppingCart" />
+				<b-badge variant="primary" v-if="cartProducts">{{cartProducts.length}}</b-badge>
+				<fa :icon="faShoppingCart" @click="viewCart" />
 			</div>
 			<Hamburger @navActive="changeVisibility" />
 		</header>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import Hamburger from '@/components/Hamburger'
@@ -35,7 +36,10 @@ export default {
     },
   	canGoBack() {
     	return this.$route.name !== 'index'
-  	}
+  	},
+  	 ...mapGetters({
+      cartProducts: "cart/cartProducts"
+    })
 	},
 	methods: {
 		changeVisibility() {
@@ -47,9 +51,14 @@ export default {
         switch(routeName) {
 	        case 'products':
             this.$router.replace('/')
-          break          
+          break    
+          case 'cart':
+          	this.$router.replace('/products')      
         default: break
       }
+    },
+    viewCart() {
+    	this.$router.push('/cart')
     }
 	}
 };

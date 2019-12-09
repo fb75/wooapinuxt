@@ -4,12 +4,13 @@
 		<Header />
 		<UIMenu />
 		<div class="col mt-2 product-list">
-		<CardProduct  
-			class="mb-4"
-			v-for="item in showProducts"
-			:product="item"
-			:key="item.id" />
-	</div>
+			<CardProduct  
+				class="mb-4"
+				v-for="item in showProducts"
+				:product="item"
+				:key="item.id" />
+		</div>
+		<Footer />
 	</div>
 </template>
 
@@ -19,13 +20,15 @@ import Navbar from '@/components/Navbar'
 import Header from '@/components/Header'
 import UIMenu from '@/components/UIMenu'
 import CardProduct from '@/components/CardProduct'
+import Footer from '@/components/Footer'
 
 export default {
 	components: {
 		Navbar,
 		Header,
 		UIMenu,
-		CardProduct
+		CardProduct,
+		Footer
 	},
 	data() {
 		return {

@@ -32,11 +32,21 @@
         <div class="product-description">
           <div class="description text-center" v-html="product.description"></div>
         </div>
-        <button class="cta-cart" @click="addToCart(product)">
+        <button
+          v-if="!product.isOnCart" 
+          class="cta-cart"
+          @click.stop="addToCart(product)">
           <p>Add to Cart</p>
         	<fa :icon="faCartPlus" />
         </button>
-        <div class="product-categories">
+        <button
+          v-if="product.isOnCart" 
+          class="cta-remove"
+          @click.stop="removeFromCart(product)">
+          <p>Remove</p>
+          <fa :icon="faMinusSquare" />
+        </button>
+        <div class="product-categories" v-if="cartProducts == 0">
           <p>{{product.categories[0].name}}</p>
           <p v-if="product.categories[1] != null">{{product.categories[1].name}}</p>
         </div>
@@ -48,6 +58,7 @@
 import { mapGetters } from 'vuex'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
+import { faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   props: ['product'],
@@ -66,6 +77,9 @@ export default {
     },
     faEllipsisV() {
     	return faEllipsisV
+    },
+    faMinusSquare() {
+      return faMinusSquare
     }
   },
   methods: {
@@ -73,7 +87,11 @@ export default {
       this.clicked = !this.clicked;
     },
     addToCart(product) {
+      product.isOnCart = true
       this.$store.dispatch('cart/addProduct', product)
+    },
+    removeFromCart(product) {
+      this.$store.dispatch('cart/removeProduct', product)
     }
   }
 };
@@ -235,6 +253,24 @@ export default {
       text-align: center;
       padding: 0.5em;
       background: #5f5c6d;
+      border: 1px solid #5f5c6d;
+      color: #fff;
+      font-weight: bold;
+      opacity: 1;
+      border-radius: 3px;
+      filter: drop-shadow(1px 1px 1px #d9dbde);
+      &:focus {
+        border: none;
+      }
+    }
+    .cta-remove {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 90%;
+      text-align: center;
+      padding: 0.5em;
+      background: lightblue;
       border: 1px solid #5f5c6d;
       color: #fff;
       font-weight: bold;
