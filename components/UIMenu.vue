@@ -141,6 +141,7 @@ export default {
 <style lang="scss" scoped>
 @media screen and (max-width: 768px) {
   .menu-container {
+    position: sticky;
     .menu-items {
       position: relative;
       top: 0;

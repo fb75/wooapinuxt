@@ -29,7 +29,7 @@
       <Toggler @toggle="panelSlide" />
       <UIMenu />
       <nuxt />
-      <!-- <Footer /> -->
+      <Footer />
     </div>
   </div>
 </template>

@@ -23,13 +23,11 @@
 <script>
 import { mapGetters } from "vuex";
 import CardProduct from "@/components/CardProduct";
-import UIMenu from "@/components/UIMenu";
 
 export default {
   layout: "ecommerce",
   components: {
-    CardProduct,
-    UIMenu
+    CardProduct
   },
   data() {
     return {

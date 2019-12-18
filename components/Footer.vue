@@ -9,19 +9,17 @@
 </script>
 
 <style lang="scss">
-	@media screen and (max-width: 767.98px) {
+	@media screen and (max-width: 768px) {
 		.footer {
-			background: darkblue;
+			background: #5B6C5F;
 			color: #fff;
 			width: 100vw;
 			height: 10vh;
 		}
 	}
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 768.98px) {
 		.footer {
-			
-			background: darkblue;
 			color: #fff;
 			width: 100%;
 			

@@ -33,20 +33,20 @@
           <div class="description text-center" v-html="product.description"></div>
         </div>
         <button
-          v-if="!product.isOnCart" 
+          v-if="!isOnCart" 
           class="cta-cart"
-          @click.stop="addToCart(product)">
+          @click="addToCart(product)">
           <p>Add to Cart</p>
         	<fa :icon="faCartPlus" />
         </button>
         <button
-          v-if="product.isOnCart" 
+          v-if="isOnCart"
           class="cta-remove"
-          @click.stop="removeFromCart(product)">
+          @click="removeFromCart(product)">
           <p>Remove</p>
-          <fa :icon="faMinusSquare" />
+          <fa :icon="faMinusSquare" class="pl-1 pr-1" />
         </button>
-        <div class="product-categories" v-if="cartProducts == 0">
+        <div class="product-categories">
           <p>{{product.categories[0].name}}</p>
           <p v-if="product.categories[1] != null">{{product.categories[1].name}}</p>
         </div>
@@ -64,7 +64,8 @@ export default {
   props: ['product'],
   data() {
     return {
-      clicked: false
+      clicked: false,
+      isOnCart: false
     };
   },
   computed: {
@@ -87,10 +88,19 @@ export default {
       this.clicked = !this.clicked;
     },
     addToCart(product) {
+      if(product.isOnCart) {
+        return
+      }
+      this.isOnCart = true
       product.isOnCart = true
       this.$store.dispatch('cart/addProduct', product)
     },
     removeFromCart(product) {
+      if(!product.isOnCart) {
+        return
+      }
+      product.isOnCart = false
+      this.isOnCart = false
       this.$store.dispatch('cart/removeProduct', product)
     }
   }

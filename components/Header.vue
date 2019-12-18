@@ -3,7 +3,7 @@
 			<fa v-if="canGoBack" :icon="faArrowLeft" @click="onClickBack" />
 			<p @click="$router.replace('/')">Nuxt.js + WC-API Ecommerce</p>
 			<div class="cart">
-				<b-badge variant="primary" v-if="cartProducts">{{cartProducts.length}}</b-badge>
+				<b-badge variant="primary" v-if="cartProducts.length > 0">{{cartProducts.length}}</b-badge>
 				<fa :icon="faShoppingCart" @click="viewCart" />
 			</div>
 			<Hamburger @navActive="changeVisibility" />
