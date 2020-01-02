@@ -16,9 +16,11 @@ $ npm install
 thanks to: [FiloSottile/mkcert](https://github.com/FiloSottile/mkcert)
 ```bash
 
+
 # create a new Nuxt.js Universal Server Rendered project on your machine
 # during installation choose to use express framework
-# into 
+# copy the new created ssl certificate inside the root folder naming it
+# inside the folder api/rootCa.js file see how I genereated the right self signed certificate 
 
 # serve with hot reload at localhost:3000
 $ npm run dev
