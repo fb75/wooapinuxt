@@ -19,7 +19,7 @@ thanks to: [FiloSottile/mkcert](https://github.com/FiloSottile/mkcert)
 
 # create a new Nuxt.js Universal Server Rendered project on your machine
 # during installation choose to use express framework
-# copy the new created ssl certificate inside the root folder naming it
+# copy the new created ssl certificate inside the root folder
 # inside the folder api/rootCa.js file see how I genereated the right self signed certificate 
 
 # serve with hot reload at localhost:3000
