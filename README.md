@@ -11,7 +11,7 @@ $ npm install
 # create a new Wordpress project and install Woocommerce plugin
 
 # since Woocommerce API plugin requires your local developmet to run under https
-# use free ssl util to create a free ssl certificate and let your localhost run under https: thanks to (FiloSottile/mkcert)[https://github.com/FiloSottile/mkcert]
+# use free ssl util to create a free ssl certificate and let your localhost run under https: thanks to [https://github.com/FiloSottile](/mkcert)
 
 # serve with hot reload at localhost:3000
 $ npm run dev
