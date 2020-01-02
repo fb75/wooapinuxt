@@ -16,6 +16,10 @@ $ npm install
 thanks to: [FiloSottile/mkcert](https://github.com/FiloSottile/mkcert)
 ```bash
 
+# create a new Nuxt.js Universal Server Rendered project on your machine
+# during installation choose to use express framework
+# into 
+
 # serve with hot reload at localhost:3000
 $ npm run dev
 
